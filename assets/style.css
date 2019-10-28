@@ -61,7 +61,15 @@ body {
     box-sizing: border-box;
     font-size: 16px;
     width: 70%;
-    ;
     max-width: 630px;
     color: #000;
+}
+
+.mainSection .logoContainer {
+    width: 250px;
+    text-align: center;
+}
+
+.logoContainer img {
+    width: 100%;
 }

@@ -27,4 +27,9 @@ class DomDocumentParser
   {
     return $this->doc->getElementsByTagName("title");
   }
+
+  public function getMetatags()
+  {
+    return $this->doc->getElementsByTagName("meta");
+  }
 }

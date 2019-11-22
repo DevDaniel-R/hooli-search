@@ -2,7 +2,7 @@
 ob_start();
 
 try {
-  $con = new PDO("mysql:dbname;host=localhost", "root", "");
+  $con = new PDO("mysql:dbname=hooli;host=localhost", "root", "");
   $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 } catch (PDOExeption $e) {
   echo "Connection failed: " . $e->getmessage();

@@ -5,6 +5,18 @@ include("config.php");
 $alreadyCrawled = array();
 $crawling = array();
 
+function linkExists($url)
+{
+  global $con;
+
+  $query = $con->prepare("SELECT * FROM sites WHERE url = :url");
+
+  $query->bindParam(":url", $url);
+  $query->execute();
+
+  return $query->rowCount() != 0;
+}
+
 function insertLink($url, $title, $description, $keywords)
 {
   global $con;
@@ -77,8 +89,15 @@ function getDetails($url)
 
   // echo "URL: $url, Description: $description, keywords: $keywords<br>";
 
-  insertLink($url, $title, $description, $keywords);
+  if (linkExists($url)) {
+    echo "url already exists<br>";
+  } else if (insertLink($url, $title, $description, $keywords)) {
+    echo "SUCCESS: $url<br>";
+  } else {
+    echo "ERROR: Failed to insert $url<br>";
+  }
 }
+
 
 function followLinks($url)
 {

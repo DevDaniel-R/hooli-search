@@ -66,6 +66,9 @@ $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
                 </ul>
             </div>
         </div>
+        <div class="mainResultsSection">
+
+        </div>
     </div>
 </body>
 

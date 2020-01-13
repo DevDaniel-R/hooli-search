@@ -32,6 +32,20 @@ function insertLink($url, $title, $description, $keywords)
   return $query->execute();
 }
 
+function insertImage($url, $src, $alt, $title)
+{
+  global $con;
+
+  $query = $con->prepare("INSERT INTO sites(url, title, description, keywords) VALUES(:url, :title, :description, :keywords)");
+
+  $query->bindParam(":url", $url);
+  $query->bindParam(":title", $title);
+  $query->bindParam(":description", $description);
+  $query->bindParam(":keywords", $keywords);
+
+  return $query->execute();
+}
+
 function createLink($src, $url)
 {
 
@@ -104,7 +118,7 @@ function getDetails($url)
     $alt = $image->getAttribute("alt");
     $title = $image->getAttribute("title");
 
-    if ($title && !$alt) {
+    if (!$title && !$alt) {
       continue;
     }
 

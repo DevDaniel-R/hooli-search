@@ -39,7 +39,7 @@ $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
 
                         <div class="searchBarContainer">
 
-                            <input class="searchBox" type="text" name="term">
+                            <input class="searchBox" type="text" name="term" value="<?php echo $term; ?>">
                             <button class="searchButton">
                                 <img src="assets/images/search.png">
                             </button>
@@ -48,7 +48,6 @@ $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
 
                     </form>
                 </div>
-
             </div>
 
             <div class="tabsContainer">
@@ -56,7 +55,7 @@ $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
                 <ul class="tabList">
                     <li class="<?php echo $type == 'sites' ? 'active' : ''  ?>">
                         <a href='<?php echo "search.php?term=$term&type=sites"; ?>'>
-                            Searches
+                            Sites
                         </a>
                     </li>
                     <li class="<?php echo $type == 'images' ? 'active' : '' ?>">

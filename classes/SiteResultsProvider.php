@@ -32,7 +32,8 @@ class SiteResultsProvider
                                   OR url LIKE :term
                                   OR keywords LIKE :term
                                   OR description LIKE :term
-                                  ORDER BY clicks DESC");
+                                  ORDER BY clicks DESC
+                                  LIMIT 5, 20");
     $searchTerm = "%" . $term . "%";
     $query->bindParam(":term", $searchTerm);
     $query->execute();
@@ -45,6 +46,10 @@ class SiteResultsProvider
       $title = $row["title"];
       $description = $row["description"];
 
+      $title = $this->trimField($title, 55);
+      $description = $this->trimField($description, 230);
+
+
       $resultsHtml .= "<div class='resultContainer'>
                       
                         <h3 class='title'>
@@ -53,11 +58,17 @@ class SiteResultsProvider
                           </a>
                         </h3>
                         <span class='url'>$url</span>
-                        <span class='description</span>
+                        <span class='description'>$description></span>
                         </div>";
     }
 
     $resultsHtml .= "</div>";
     return $resultsHtml;
+  }
+
+  private function trimfield($string, $characterLimit)
+  {
+    $dots = strlen($string) > $characterLimit ? "..." : "";
+    return substr($string, 0, $characterLimit) . $dots;
   }
 }

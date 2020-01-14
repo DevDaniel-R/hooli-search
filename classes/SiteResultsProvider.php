@@ -26,6 +26,7 @@ class SiteResultsProvider
 
   public function getResultsHtml($page, $pageSize, $term)
   {
+    $fromLimit = ($page - 1) * $pageSize;
 
     $query = $this->con->prepare("SELECT *
                                   FROM sites WHERE title LIKE :term
@@ -33,9 +34,11 @@ class SiteResultsProvider
                                   OR keywords LIKE :term
                                   OR description LIKE :term
                                   ORDER BY clicks DESC
-                                  LIMIT 5, 20");
+                                  LIMIT :fromLimit, :pageSize");
     $searchTerm = "%" . $term . "%";
     $query->bindParam(":term", $searchTerm);
+    $query->bindParam(":fromLimit", $fromLimit, PDO::PARAM_INT);
+    $query->bindParam(":pageSize", $pageSize, PDO::PARAM_INT);
     $query->execute();
 
     $resultsHtml = "<div class='siteResults'>";

@@ -170,5 +170,5 @@ function followLinks($url)
   }
 }
 
-$startUrl = "https://www.bbc.com";
+$startUrl = "https://www.google.com";
 followLinks($startUrl);

@@ -12,17 +12,18 @@ body {
 
 /*background for later*/
 
-.main-header {
+/* .main-header {
     /* background: rgba(0, 0, 0, .5);
     url(../img/backgroundB.jpg); */
-    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, rgba(0, 0, 0, 0.5)100%), url("/assets/images/cloud.jpg");
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    /* color: #fff; */
+background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, rgba(0, 0, 0, 0.5)100%),
+url("/assets/images/cloud.jpg");
+background-size: cover;
+background-position: center;
+min-height: 100vh;
+color: #fff;
 }
 
-.wrapper {
+*/ .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100%;

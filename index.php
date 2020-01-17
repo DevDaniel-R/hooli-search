@@ -11,7 +11,7 @@
 
 <body>
 
-    <div class="wrapper indexPage main-header">
+    <div class="wrapper indexPage ">
 
         <div class="mainSection">
             <div class="logoContainer">

@@ -10,26 +10,26 @@
 </head>
 
 <body>
+    <div class="main-header">
+        <div class="wrapper indexPage">
 
-    <div class="wrapper indexPage ">
+            <div class="mainSection">
+                <div class="logoContainer">
+                    <img src="assets/images/hoolie.png">
+                </div>
 
-        <div class="mainSection">
-            <div class="logoContainer">
-                <img src="assets/images/hoolie.png">
+                <div class="searchContainer">
+
+                    <form action="search.php" method="GET">
+                        <input class="searchBox" type="text" name="term">
+                        <input class="searchButton" type="submit" value="search">
+                    </form>
+
+                </div>
+
             </div>
-
-            <div class="searchContainer">
-
-                <form action="search.php" method="GET">
-                    <input class="searchBox" type="text" name="term">
-                    <input class="searchButton" type="submit" value="search">
-                </form>
-
-            </div>
-
         </div>
     </div>
-
 </body>
 
 </html>

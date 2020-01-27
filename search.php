@@ -18,8 +18,11 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 <html lang="en">
 
 <head>
-    <title>hooli</title>
+    <title>Look Around</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -133,6 +136,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
         </div>
 
     </div>
+    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
 </html>

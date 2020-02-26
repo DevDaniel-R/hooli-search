@@ -1,3 +1,9 @@
+<?php
+echo 'hello from the public folder';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

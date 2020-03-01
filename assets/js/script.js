@@ -1,3 +1,5 @@
+var timer
+
 $(document).ready(function() {
  
   $(".result").on("click", function() {
@@ -6,7 +8,7 @@ $(document).ready(function() {
   var id = $(this).attr("data-linkId");
  
   if(!id) {
-    alert("data-linkId att not foud");
+    alert("data-linkId att not found");
   }
 
   increaseLinkClicks(id, url);
@@ -15,6 +17,10 @@ $(document).ready(function() {
 });
 
 var grid = $(".imageResults");
+
+grid.on("layoutComplete", function(){
+  $(".gridItem img").css("visibility", "visible");
+})
 
 grid.masonry({
     itemSelector: ".gridItem",
@@ -31,9 +37,21 @@ function loadImage(src, className) {
 
   image.on("load", function() {
     $("." + className + " a").append(image);
+
+    clearTimeout(timer);
+
+    timer = setTimeout(function() {
+      $(".imageResults").masonry();
+    }, 300);
+
+    
   });
 
   image.on("error", function() {
+
+    $("." + className).remove();
+
+    $post("ajax/setBroken.php", {src: src});
 
   });
 

@@ -29,6 +29,21 @@ grid.masonry({
     isInitLayout: false
 });
 
+$("[data-fancybox]").fancybox({
+
+  caption : function( instance, item ) {
+    var caption = $(this).data('caption') || '';
+    var siteUrl = $(this).data('siteurl') || '';
+
+    if ( item.type === 'image' ) {
+        caption = (caption.length ? caption + '<br />' : '') + '<a href="' + item.src + '">View image</a><br>'
+        + '<a href="' + siteUrl + '">View page</a>' ;
+    }
+
+    return caption;
+}
+});
+
 });
 
 function loadImage(src, className) {

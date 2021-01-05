@@ -16,12 +16,12 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Look Around</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -46,7 +46,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
                         <div class="searchBarContainer">
                             <input type="hidden" name="type" value="<?php echo $type; ?>">
-                            <input class="searchBox" type="text" name="term" value="<?php echo $term; ?>">
+                            <input class="searchBox" type="text" name="term" value="<?php echo $term; ?>" autocomplete="off">
                             <button class="searchButton">
                                 <img src="assets/images/search.png">
                             </button>
@@ -105,6 +105,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
                 $pagesToShow = 10;
                 $numPages = ceil($numResults / $pageSize);
                 $pagesLeft = min($pagesToShow, $numPages);
+
                 $currentPage = $page - floor($pagesToShow / 2);
 
                 if ($currentPage < 1) {
@@ -119,13 +120,16 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
                     if ($currentPage == $page) {
                         echo "<div class='pageNumberContainer'>
-                        <img src='assets/images/pageSelected.png'>
-                        <span class='pageNumber'>$currentPage</span> </div>";
+								<img src='assets/images/pageSelected.png'>
+								<span class='pageNumber'>$currentPage</span>
+							</div>";
                     } else {
                         echo "<div class='pageNumberContainer'>
-                        <a href='search.php?term=$term&type=$type&page=$currentPage'>
-                        <img src='assets/images/page.png'>
-                        <span class='pageNumber'>$currentPage</span></a> </div>";
+								<a href='search.php?term=$term&type=$type&page=$currentPage'>
+									<img src='assets/images/page.png'>
+									<span class='pageNumber'>$currentPage</span>
+								</a>
+						</div>";
                     }
 
                     $currentPage++;

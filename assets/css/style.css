@@ -259,6 +259,10 @@ a .pageNumber {
 	margin: 20px;
 }
 
+.gridItem {
+	position: relative;
+}
+
 .gridItem img {
 	max-width: 200px;
 	min-width: 50px;
